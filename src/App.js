@@ -1,9 +1,10 @@
-import Keypad from './templates/Keypad';
-import Counter from './templates/Counter';
 import { useState } from 'react';
-import Statusbar from './templates/Statusbar';
-import multipliers from './assets/multipliers';
 import { ValuesContext } from './contexts/values';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Layout from './Layout';
+import Home from './pages/Home';
+import About from './pages/About';
+import Contact from './pages/Contact';
 
 function App() {
 	const [values, setValues] = useState([
@@ -25,45 +26,17 @@ function App() {
 		{ id: '25b', value: '', multiplier: 25 },
 		{ id: '20b', value: '', multiplier: 20 },
 	]);
-	// const [value, setValue] = useState('');
-	const [totalValue, setTotalValue] = useState(0);
-
-	const [currentMultiplier, setCurrentMultiplier] = useState(multipliers[0]);
 	return (
 		<ValuesContext.Provider value={{ values, setValues }}>
-			<div className="App flex flex-col">
-				<div className="fixed bottom-0">
-					<Counter
-						// value={value}
-						// setValue={setValue}
-						multiplier={{
-							multipliers,
-							currentMultiplier,
-							setCurrentMultiplier,
-						}}
-					/>
-					<Statusbar
-						totalValue={totalValue}
-						setTotalValue={setTotalValue}
-						multiplier={{
-							multipliers,
-							currentMultiplier,
-							setCurrentMultiplier,
-						}}
-					/>
-					<Keypad
-						// setValue={setValue}
-						// value={value}
-						totalValue={totalValue}
-						setTotalValue={setTotalValue}
-						multiplier={{
-							multipliers,
-							currentMultiplier,
-							setCurrentMultiplier,
-						}}
-					/>
-				</div>
-			</div>
+			<BrowserRouter>
+				<Routes>
+					<Route path="/" element={<Layout />}>
+						<Route index element={<Home />} />
+						<Route path="/about" element={<About />} />
+						<Route path="/contact" element={<Contact />} />
+					</Route>
+				</Routes>
+			</BrowserRouter>
 		</ValuesContext.Provider>
 	);
 }
