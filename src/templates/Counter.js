@@ -3,11 +3,7 @@ import LargeInput from '../components/LargeInput';
 import { motion } from 'framer-motion';
 
 const Counter = ({ multiplier }) => {
-	const { multipliers, currentMultiplier } = multiplier;
-
-	const currentMultiplierIndex = multipliers.findIndex(
-		multiplier => multiplier.id === currentMultiplier.id
-	);
+	const { currentMultiplier } = multiplier;
 
 	return (
 		<div className="flex flex-col w-screen p-4">

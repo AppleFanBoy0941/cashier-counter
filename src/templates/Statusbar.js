@@ -3,15 +3,11 @@ import { motion, AnimatePresence } from 'framer-motion';
 import useCalculations from '../hooks/useCalculations';
 
 const Statusbar = ({ multiplier }) => {
-	const { values, calculateTotal, resetValues } = useCalculations();
+	const { calculateTotal, resetValues } = useCalculations();
 	const { multipliers, currentMultiplier, setCurrentMultiplier } = multiplier;
 	const currentMultiplierIndex = multipliers.findIndex(
 		multiplier => multiplier.id === currentMultiplier.id
 	);
-
-	// const currentValue = values.find(
-	// 	item => item.id === currentMultiplier.id
-	// ).value;
 
 	const total = calculateTotal();
 

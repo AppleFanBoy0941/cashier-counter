@@ -1,9 +1,7 @@
 import { motion } from 'framer-motion';
 import FeatherIcon from 'feather-icons-react';
-import useCalculations from '../hooks/useCalculations';
 
-const Enter = ({ value, setValue, totalValue, setTotalValue, multiplier }) => {
-	const { setNewValue } = useCalculations();
+const Enter = ({ value, multiplier }) => {
 	const { multipliers, currentMultiplier, setCurrentMultiplier } = multiplier;
 	const currentMultiplierIndex = multipliers.findIndex(
 		multiplier => multiplier.id === currentMultiplier.id
@@ -13,9 +11,6 @@ const Enter = ({ value, setValue, totalValue, setTotalValue, multiplier }) => {
 			className={`w-full h-full bg-slate-500 rounded-md`}
 			onClick={() => {
 				if (value === '') return;
-				// setNewValue(currentMultiplier.id, parseFloat(value));
-				// setTotalValue(totalValue + parseInt(value) * currentMultiplier.value);
-				// setValue('');
 				setCurrentMultiplier(
 					currentMultiplierIndex === multipliers.length - 1
 						? multipliers[0]
