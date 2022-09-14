@@ -17,7 +17,7 @@ const Keypad = ({ setValue, value, setTotalValue, totalValue, multiplier }) => {
 	];
 
 	return (
-		<div className="bg-slate-50 p-4 grid grid-cols-3 grid-rows-4 gap-3 w-full mt-auto">
+		<div className="bg-slate-50 dark:bg-slate-800/50 p-4 grid grid-cols-3 grid-rows-4 gap-3 w-full mt-auto">
 			{keys.map(key => (
 				<Key
 					key={key.id}

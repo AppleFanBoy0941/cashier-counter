@@ -19,7 +19,7 @@ const Statusbar = ({ multiplier }) => {
 					animate={{ scale: 1 }}
 					whileTap={{ scale: 0.75 }}
 					transition={{ type: 'spring', stiffness: 200 }}
-					className="p-2 bg-slate-50 rounded-full border border-slate-200 w-12 h-12 flex items-center justify-center"
+					className="p-2 bg-slate-50 dark:bg-slate-800 rounded-full border border-slate-200 dark:border-slate-700 w-12 h-12 flex items-center justify-center text-slate-600 dark:text-slate-300"
 					onClick={() => {
 						if (currentMultiplierIndex === 0) return;
 						setCurrentMultiplier(multipliers[currentMultiplierIndex - 1]);
@@ -32,7 +32,7 @@ const Statusbar = ({ multiplier }) => {
 					animate={{ scale: 1 }}
 					whileTap={{ scale: 0.75 }}
 					transition={{ type: 'spring', stiffness: 200 }}
-					className="p-2 bg-slate-50 rounded-full border border-slate-200 w-12 h-12 flex items-center justify-center"
+					className="p-2 bg-slate-50 dark:bg-slate-800 rounded-full border border-slate-200 dark:border-slate-700 w-12 h-12 flex items-center justify-center text-slate-600 dark:text-slate-300"
 					onClick={() => {
 						if (currentMultiplierIndex === multipliers.length - 1) return;
 						setCurrentMultiplier(multipliers[currentMultiplierIndex + 1]);
@@ -41,7 +41,7 @@ const Statusbar = ({ multiplier }) => {
 					<FeatherIcon icon="chevron-right" className="-mr-1" />
 				</motion.button>
 			</div>
-			<div className="h-12 flex justify-between items-center p-2 pr-4 bg-slate-50 w-full rounded-md border border-slate-100">
+			<div className="h-12 flex justify-between items-center p-2 pr-4 bg-slate-50 dark:bg-slate-800 w-full rounded-md border border-slate-100 dark:border-slate-700">
 				<AnimatePresence>
 					{total !== 0 && (
 						<motion.button
@@ -86,7 +86,7 @@ const Statusbar = ({ multiplier }) => {
 						x: 0,
 						transition: { duration: 0.3 },
 					}}
-					className="font-mono text-slate-600 ml-auto"
+					className="font-mono text-slate-600 dark:text-slate-300 ml-auto"
 				>
 					{total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ')}
 				</motion.p>

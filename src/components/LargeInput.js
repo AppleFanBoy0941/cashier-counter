@@ -6,12 +6,12 @@ const LargeInput = ({ id }) => {
 	const currentValue = values.find(item => item.id === id).value;
 
 	return (
-		<div className="bg-slate-100 py-8 w-full rounded-md text-3xl font-bold text-center font-mono shadow-inner shadow-slate-200/50">
+		<div className="bg-slate-100 dark:bg-slate-800 py-8 w-full rounded-md text-3xl font-bold text-center font-mono shadow-inner shadow-slate-200/50 dark:shadow-none">
 			<motion.input
 				initial={{ opacity: 0, y: -20 }}
 				animate={{ opacity: 1, y: 0 }}
 				key={currentValue}
-				className="bg-transparent text-center focus:outline-none text-slate-800"
+				className="bg-transparent text-center focus:outline-none text-slate-800 dark:text-slate-100"
 				type="text"
 				readOnly="readOnly"
 				value={currentValue !== 0 ? currentValue : ''}
