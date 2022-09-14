@@ -9,16 +9,20 @@ const Statusbar = ({ multiplier }) => {
 		multiplier => multiplier.id === currentMultiplier.id
 	);
 
-	const currentValue = values.find(
-		item => item.id === currentMultiplier.id
-	).value;
+	// const currentValue = values.find(
+	// 	item => item.id === currentMultiplier.id
+	// ).value;
 
 	const total = calculateTotal();
 
 	return (
 		<div className="flex justify-between px-4 py-2 gap-4">
 			<div className="flex items-center gap-2">
-				<button
+				<motion.button
+					initial={{ scale: 0.8 }}
+					animate={{ scale: 1 }}
+					whileTap={{ scale: 0.75 }}
+					transition={{ type: 'spring', stiffness: 200 }}
 					className="p-2 bg-slate-50 rounded-full border border-slate-200 w-12 h-12 flex items-center justify-center"
 					onClick={() => {
 						if (currentMultiplierIndex === 0) return;
@@ -26,8 +30,12 @@ const Statusbar = ({ multiplier }) => {
 					}}
 				>
 					<FeatherIcon icon="chevron-left" className="-ml-1" />
-				</button>
-				<button
+				</motion.button>
+				<motion.button
+					initial={{ scale: 0.8 }}
+					animate={{ scale: 1 }}
+					whileTap={{ scale: 0.75 }}
+					transition={{ type: 'spring', stiffness: 200 }}
 					className="p-2 bg-slate-50 rounded-full border border-slate-200 w-12 h-12 flex items-center justify-center"
 					onClick={() => {
 						if (currentMultiplierIndex === multipliers.length - 1) return;
@@ -35,7 +43,7 @@ const Statusbar = ({ multiplier }) => {
 					}}
 				>
 					<FeatherIcon icon="chevron-right" className="-mr-1" />
-				</button>
+				</motion.button>
 			</div>
 			<div className="h-12 flex justify-between items-center p-2 pr-4 bg-slate-50 w-full rounded-md border border-slate-100">
 				<AnimatePresence>
@@ -74,9 +82,18 @@ const Statusbar = ({ multiplier }) => {
 						</motion.button>
 					)}
 				</AnimatePresence>
-				<p className="font-mono text-slate-600 ml-auto">
+				<motion.p
+					key={total}
+					initial={{ opacity: 0, x: 16 }}
+					animate={{
+						opacity: 1,
+						x: 0,
+						transition: { duration: 0.3 },
+					}}
+					className="font-mono text-slate-600 ml-auto"
+				>
 					{total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ')}
-				</p>
+				</motion.p>
 			</div>
 		</div>
 	);
