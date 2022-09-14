@@ -21,7 +21,7 @@ const ContextualMenu = ({ side, links, isOpen, setIsOpen }) => {
 					initial="closed"
 					animate="open"
 					exit="exit"
-					className={`contextmenu flex flex-col p-1 absolute top-full mt-4 mx-4 w-2/3 bg-slate-50/75 dark:bg-slate-800/75 backdrop-blur-lg rounded-md shadow-xl shadow-slate-200/50 dark:shadow-none border border-slate-100 dark:border-slate-700 ${
+					className={`contextmenu flex flex-col p-1 absolute top-full mt-4 mx-4 w-2/3 bg-slate-50 dark:bg-slate-800 rounded-md shadow-xl shadow-slate-200/50 dark:shadow-none border border-slate-100 dark:border-slate-700 ${
 						side === 'left' ? 'left-0' : 'right-0'
 					} z-50`}
 				>
