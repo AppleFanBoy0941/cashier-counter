@@ -22,7 +22,7 @@ const Nav = () => {
 	];
 
 	return (
-		<nav className="fixed top-0 w-screen p-4 flex justify-between items-center shadow-xl shadow-slate-400/10 dark:shadow-none dark:border-b dark:border-b-slate-800">
+		<nav className="fixed top-0 w-screen p-4 flex justify-between items-center bg-white/25 dark:bg-slate-900/25 shadow-xl shadow-slate-400/10 dark:shadow-none dark:border-b dark:border-b-slate-800 backdrop-blur-md">
 			<h1 className="text-xl font-bold text-slate-600 dark:text-slate-400">
 				Optæller
 			</h1>
