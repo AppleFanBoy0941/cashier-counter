@@ -14,7 +14,7 @@ const Layout = () => {
 		: false;
 
 	const [isPwaModalOpen, setIsPwaModalOpen] = useState(
-		!isPwaModalDismissed && isPwa
+		!isPwaModalDismissed && !isPwa
 	);
 
 	const handlePwaModalDismiss = () => {
