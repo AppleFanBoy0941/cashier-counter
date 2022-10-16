@@ -22,8 +22,8 @@ const DeleteKey = ({ id }) => {
 						translateY: '-50%',
 						filter: 'blur(0px)',
 						transition: {
-							delay: 0.5,
-							duration: 0.3,
+							delay: 0.05,
+							duration: 0.2,
 						},
 					}}
 					exit={{
@@ -45,12 +45,12 @@ const DeleteKey = ({ id }) => {
 					transition={{
 						duration: 3,
 					}}
-					className="absolute top-1/2 -translate-y-1/2 right-2 rounded-full p-2 text-slate-400"
+					className='absolute top-1/2 -translate-y-1/2 right-2 rounded-full p-2 text-slate-400'
 					onClick={() => {
 						setNewValue(id, currentValue.slice(0, -1));
 					}}
 				>
-					<FeatherIcon icon="delete" />
+					<FeatherIcon icon='delete' />
 				</motion.button>
 			)}
 		</AnimatePresence>
