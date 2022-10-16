@@ -1,7 +1,7 @@
 import BurgerMenu from '../components/BurgerMenu';
 import ThemeToggle from '../components/ThemeToggle';
 import { useState } from 'react';
-import ContextualMenu from './ContextualMenu';
+import NavContextualMenu from './NavContextualMenu';
 
 const Nav = () => {
 	const [isOpen, setIsOpen] = useState(false);
@@ -38,7 +38,11 @@ const Nav = () => {
 			<div className='flex'>
 				<ThemeToggle />
 				<BurgerMenu isOpen={isOpen} setIsOpen={setIsOpen} />
-				<ContextualMenu isOpen={isOpen} setIsOpen={setIsOpen} links={links} />
+				<NavContextualMenu
+					isOpen={isOpen}
+					setIsOpen={setIsOpen}
+					links={links}
+				/>
 			</div>
 		</nav>
 	);

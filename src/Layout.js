@@ -13,9 +13,13 @@ const Layout = () => {
 		? JSON.parse(localStorage.getItem('optaellerPwaModalDismissed'))
 		: false;
 
-	const [isPwaModalOpen, setIsPwaModalOpen] = useState(
-		!isPwaModalDismissed && !isPwa
-	);
+	const [isPwaModalOpen, setIsPwaModalOpen] = useState(false);
+
+	if (!isPwaModalDismissed && !isPwa) {
+		setTimeout(() => {
+			setIsPwaModalOpen(true);
+		}, 60000);
+	}
 
 	const handlePwaModalDismiss = () => {
 		localStorage.setItem('optaellerPwaModalDismissed', true);
