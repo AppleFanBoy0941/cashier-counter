@@ -1,5 +1,6 @@
 import Key from '../components/Key';
 import Enter from '../components/Enter';
+import checkPwa from '../functions/checkPwa';
 
 const Keypad = ({ setValue, value, setTotalValue, totalValue, multiplier }) => {
 	const { currentMultiplier } = multiplier;
@@ -16,8 +17,14 @@ const Keypad = ({ setValue, value, setTotalValue, totalValue, multiplier }) => {
 		{ id: '0', value: '0', span: 2 },
 	];
 
+	const isPwa = checkPwa();
+
 	return (
-		<div className="bg-slate-50 dark:bg-slate-800/50 p-4 grid grid-cols-3 grid-rows-4 gap-3 w-full mt-auto">
+		<div
+			className={`first-line:bg-slate-50 dark:bg-slate-800/50 p-4 ${
+				isPwa && 'pb-12'
+			} grid grid-cols-3 grid-rows-4 gap-3 w-full mt-auto`}
+		>
 			{keys.map(key => (
 				<Key
 					key={key.id}

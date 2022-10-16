@@ -19,14 +19,14 @@ const MultiplierDropDown = ({ multiplier }) => {
 		<div className='relative'>
 			<motion.div
 				layout
-				className='contextualmenu flex gap-2 items-center mb-1 relative py-1 px-2 rounded-md border border-slate-100 bg-slate-50 overflow-hidden'
+				className='contextualmenu flex gap-2 items-center mb-1 relative py-1 px-2 rounded-md border border-slate-100 bg-slate-50 dark:bg-slate-800/50 dark:border-slate-700/75 overflow-hidden'
 				onClick={() => setIsOpen(!isOpen)}
 			>
 				<motion.div
 					key={currentMultiplier.type}
 					initial={{ opacity: 0, scale: 0.8 }}
 					animate={{ opacity: 1, scale: 1 }}
-					className='text-slate-600 pointer-events-none'
+					className='text-slate-400 dark:text-slate-500 pointer-events-none'
 				>
 					<FeatherIcon
 						icon={
@@ -39,10 +39,10 @@ const MultiplierDropDown = ({ multiplier }) => {
 						size='16'
 					/>
 				</motion.div>
-				<div className='w-px h-6 bg-slate-200 rounded-full pointer-events-none'></div>
+				<div className='w-px h-6 bg-slate-200 dark:bg-slate-700/50 rounded-full pointer-events-none'></div>
 				<motion.p
 					key={currentMultiplier.id}
-					className='font-medium text-slate-600 pointer-events-none'
+					className='font-medium text-slate-600 dark:text-slate-300 pointer-events-none'
 					initial={{ x: 40 }}
 					animate={{ x: 0 }}
 				>
