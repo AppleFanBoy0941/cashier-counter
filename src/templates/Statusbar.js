@@ -18,7 +18,6 @@ const Statusbar = ({ multiplier }) => {
 	const currentValue = values[currentMultiplierIndex].value;
 
 	const currentTotal = currentValue * currentMultiplier.value;
-	console.log('er her ' + currentTotal);
 
 	const total = calculateTotal();
 
