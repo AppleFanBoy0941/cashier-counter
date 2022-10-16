@@ -7,8 +7,6 @@ const ContextualMenu = props => {
 	const { isOpen, setIsOpen, items, side, avoidClassnames, highLight, offset } =
 		props;
 
-	console.log(isOpen);
-
 	// check if avoidClassnames is an array or a string
 	const avoidClassnamesArray = Array.isArray(avoidClassnames);
 
