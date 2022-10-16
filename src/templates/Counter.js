@@ -1,25 +1,10 @@
 import DeleteKey from '../components/DeleteKey';
 import LargeInput from '../components/LargeInput';
 import { motion } from 'framer-motion';
-import FeatherIcon from 'feather-icons-react';
-import ContextualMenu from './ContextualMenu';
-import { useState } from 'react';
 import MultiplierDropDown from './MultiplierDropDown';
 
 const Counter = ({ multiplier }) => {
 	const { currentMultiplier } = multiplier;
-
-	const [contextualMenuIsOpen, setContextualMenuIsOpen] = useState(false);
-
-	const contextualMenuItems = multiplier.multipliers.map(thisMultiplier => {
-		return {
-			...thisMultiplier,
-			onClick: () => {
-				multiplier.setCurrentMultiplier(thisMultiplier);
-				setContextualMenuIsOpen(false);
-			},
-		};
-	});
 
 	return (
 		<div className='flex flex-col w-screen p-4'>
