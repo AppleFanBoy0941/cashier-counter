@@ -1,24 +1,37 @@
-import useCalculations from '../hooks/useCalculations';
-import { motion } from 'framer-motion';
+import useCalculations from '../hooks/useCalculations'
+import Digit from './Digit'
+import FadingLine from './FadingLine'
 
 const LargeInput = ({ id }) => {
-	const { values } = useCalculations();
-	const currentValue = values.find(item => item.id === id).value;
+	const { values, setNewValue } = useCalculations()
+	const currentValue = values.find(item => item.id === id).value
+	const dividedValue = currentValue.toString().split('')
+	const missingZeros = 3 - dividedValue.length
+	const digits = [...Array(missingZeros).fill('0'), ...dividedValue]
+
+	function addNewValue(value, index) {
+		const newValue = digits
+		newValue[index] = value
+		setNewValue(id, newValue.join(''))
+		return newValue.join('')
+	}
 
 	return (
-		<div className="bg-slate-50 dark:bg-slate-800 py-8 w-full rounded-md text-3xl font-bold text-center font-mono border border-slate-100 dark:border-slate-700">
-			<motion.input
-				initial={{ opacity: 0, y: -20 }}
-				animate={{ opacity: 1, y: 0 }}
-				key={currentValue}
-				className="bg-transparent text-center focus:outline-none text-slate-800 dark:text-slate-100"
-				type="text"
-				readOnly="readOnly"
-				value={currentValue !== 0 ? currentValue : ''}
-				placeholder="0"
-			/>
+		<div className='flex justify-center py-4 gap-2'>
+			<FadingLine />
+			{digits.map((digit, index) => (
+				<>
+					<Digit
+						digit={digit}
+						index={index}
+						key={index}
+						updater={addNewValue}
+					/>
+					<FadingLine key={`line${index}`} />
+				</>
+			))}
 		</div>
-	);
-};
+	)
+}
 
-export default LargeInput;
+export default LargeInput
