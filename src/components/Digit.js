@@ -1,6 +1,4 @@
 import { motion, AnimatePresence } from 'framer-motion'
-import { useEffect } from 'react'
-import { useState } from 'react'
 
 export default function Digit({ digit, index, updater }) {
 	digit = parseInt(digit)
